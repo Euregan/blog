@@ -88,5 +88,5 @@ theme_config:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:Euregan/blog.git
+  repo: git@github.com:Euregan/euregan.github.io.git
   branch: master
