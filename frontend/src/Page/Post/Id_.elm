@@ -37,22 +37,30 @@ page =
 
 routes : DataSource (List RouteParams)
 routes =
-    DataSource.Http.get
-        (Pages.Secrets.succeed
-            (\api -> api ++ "/posts")
-            |> Pages.Secrets.with "API_HOST"
-        )
-        (OptimizedDecoder.list <| OptimizedDecoder.map RouteParams <| OptimizedDecoder.field "id" OptimizedDecoder.string)
+    DataSource.succeed [ { id = "647505bb7416fb40f07e2f73" } ]
+
+
+
+-- DataSource.Http.get
+--     (Pages.Secrets.succeed
+--         (\api -> api ++ "/posts")
+--         |> Pages.Secrets.with "API_HOST"
+--     )
+--     (OptimizedDecoder.list <| OptimizedDecoder.map RouteParams <| OptimizedDecoder.field "id" OptimizedDecoder.string)
 
 
 data : RouteParams -> DataSource Data
 data routeParams =
-    DataSource.Http.get
-        (Pages.Secrets.succeed
-            (\api -> api ++ "/posts/" ++ routeParams.id)
-            |> Pages.Secrets.with "API_HOST"
-        )
-        postDecoder
+    DataSource.succeed { id = "647505bb7416fb40f07e2f73", title = "Test" }
+
+
+
+-- DataSource.Http.get
+--     (Pages.Secrets.succeed
+--         (\api -> api ++ "/posts/" ++ routeParams.id)
+--         |> Pages.Secrets.with "API_HOST"
+--     )
+--     postDecoder
 
 
 postDecoder : OptimizedDecoder.Decoder Data
