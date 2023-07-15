@@ -1,11 +1,14 @@
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { useEffect, useState } from "react";
 import * as styles from "./App.css";
 import authentication from "./assets/authentication - 4.png";
 import ai from "./assets/ai in society - 3.png";
+import elm from "./assets/elm.png";
 import Article from "./Article";
 import { useBackgroundStore } from "./stores";
+import Nav from "./Nav";
+import Presentation from "./Presentation";
 
 const App = () => {
   const [location] = useLocation();
@@ -34,15 +37,22 @@ const App = () => {
       })}
       className={background ? styles.page.withBackground : styles.page.default}
     >
-      <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </nav>
+      <Nav />
 
       <main className={styles.main}>
+        <Presentation />
+
+        <h2>My last posts:</h2>
+
         <Article
-          title="How to implement authentication without a library"
+          title="Building apps that do not crash"
+          illustration={elm}
+          link="/post/elm"
+        >
+          {content}
+        </Article>
+        <Article
+          title="Authentication without a library"
           illustration={authentication}
           link="/post/authentication"
         >
