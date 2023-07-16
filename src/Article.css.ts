@@ -103,3 +103,27 @@ export const content = style({
     },
   },
 });
+
+export const backgroundIllustration = createVar();
+
+export const background = style({
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100vw",
+  height: "100vh",
+  background: backgroundIllustration,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  zIndex: -1,
+  filter: "brightness(0.5) blur(4px) contrast(0.8)",
+  // We slightly scale the background to prevent dark borders around the background
+  transform: "scale(1.1)",
+  opacity: 0,
+  transition,
+  selectors: {
+    [`.${article.list}:hover + &, .${article.full} + &`]: {
+      opacity: 1,
+    },
+  },
+});

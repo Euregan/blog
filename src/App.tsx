@@ -1,42 +1,14 @@
-import { useLocation } from "wouter";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
-import { useEffect, useState } from "react";
 import * as styles from "./App.css";
 import authentication from "./assets/authentication - 4.png";
 import ai from "./assets/ai in society - 3.png";
 import elm from "./assets/elm.png";
 import Article from "./Article";
-import { useBackgroundStore } from "./stores";
 import Nav from "./Nav";
 import Presentation from "./Presentation";
 
 const App = () => {
-  const [location] = useLocation();
-  const { background, setBackground } = useBackgroundStore();
-
-  const [lastBackground, setLastBackground] = useState(
-    background || "transparent"
-  );
-
-  useEffect(() => {
-    if (!location.startsWith("/post")) {
-      setBackground(null);
-    }
-  }, [location, setBackground]);
-
-  useEffect(() => {
-    if (background) {
-      setLastBackground(background);
-    }
-  }, [background]);
-
   return (
-    <div
-      style={assignInlineVars({
-        [styles.background]: lastBackground,
-      })}
-      className={background ? styles.page.withBackground : styles.page.default}
-    >
+    <>
       <Nav />
 
       <main className={styles.main}>
@@ -66,7 +38,7 @@ const App = () => {
           {content}
         </Article>
       </main>
-    </div>
+    </>
   );
 };
 

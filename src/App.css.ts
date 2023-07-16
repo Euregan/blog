@@ -1,10 +1,4 @@
-import {
-  createVar,
-  fontFace,
-  globalStyle,
-  style,
-  styleVariants,
-} from "@vanilla-extract/css";
+import { createVar, fontFace, globalStyle, style } from "@vanilla-extract/css";
 
 const muktaMahee = fontFace({
   src: `url(/MuktaMahee-Regular.ttf)`,
@@ -19,8 +13,6 @@ globalStyle("body", {
 
 export const contentWidth = createVar();
 
-export const background = createVar();
-
 export const main = style({
   width: contentWidth,
   margin: "auto",
@@ -30,41 +22,4 @@ export const main = style({
   vars: {
     [contentWidth]: "1028px",
   },
-});
-
-const pageBase = style({
-  "::after": {
-    content: " ",
-    background,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "fixed",
-    top: 0,
-    zIndex: -1,
-    width: "100%",
-    height: "100%",
-    filter: "brightness(0.5) blur(4px) contrast(0.8)",
-    transition: "all 0.5s",
-    // We slightly scale the background to prevent dark borders around the background
-    transform: "scale(1.1)",
-  },
-});
-
-export const page = styleVariants({
-  default: [
-    pageBase,
-    {
-      "::after": {
-        opacity: 0,
-      },
-    },
-  ],
-  withBackground: [
-    pageBase,
-    {
-      "::after": {
-        opacity: 1,
-      },
-    },
-  ],
 });
