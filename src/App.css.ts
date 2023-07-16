@@ -16,6 +16,7 @@ globalStyle("h1, h2", {
 });
 
 export const contentWidth = createVar();
+export const listGap = createVar();
 
 export const main = style({
   width: contentWidth,
@@ -23,12 +24,9 @@ export const main = style({
   display: "flex",
   // The children are in reverse order to make the glass effect of Presentation work when hovering over an article
   flexDirection: "column-reverse",
-  gap: "20px",
+  gap: listGap,
   vars: {
     [contentWidth]: "1028px",
+    [listGap]: "20px",
   },
-});
-
-export const postSectionTitle = style({
-  padding: "0 40px",
 });

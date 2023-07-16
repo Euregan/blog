@@ -1,4 +1,5 @@
 import * as styles from "./App.css";
+import * as sectionTitlesStyles from "./AppSectionTitle.css";
 import authentication from "./assets/authentication - 4.png";
 import ai from "./assets/ai in society - 3.png";
 import elm from "./assets/elm.png";
@@ -36,7 +37,7 @@ const App = () => {
           {content}
         </Article>
 
-        <h2 className={styles.postSectionTitle}>My latest posts:</h2>
+        <h2 className={sectionTitlesStyles.posts}>My latest posts:</h2>
 
         <Presentation />
       </main>

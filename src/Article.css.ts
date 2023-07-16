@@ -1,6 +1,6 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { contentWidth } from "./App.css";
+import { contentWidth, listGap } from "./App.css";
 import { theme } from "./theme.css";
 
 const articleBase = style({
@@ -13,7 +13,7 @@ const height = createVar();
 
 export const articleIllustration = createVar();
 
-export const article = styleVariants({
+const internalArticle = styleVariants({
   list: [
     articleBase,
     {
@@ -32,14 +32,33 @@ export const article = styleVariants({
   ],
 });
 
+export const article = styleVariants({
+  list: [
+    internalArticle.list,
+    {
+      selectors: {
+        [`&:has(~ .${internalArticle.full}), .${internalArticle.full} ~ &`]: {
+          opacity: 0,
+          vars: {
+            [height]: calc.multiply(-1, listGap),
+          },
+        },
+      },
+    },
+  ],
+  full: [internalArticle.full],
+});
+
 export const title = style({
   color: "white",
   fontSize: 24,
+  padding: "0 40px",
 });
 
 export const link = style([
   title,
   {
+    padding: 0,
     lineHeight: 1,
     position: "absolute",
     top: 0,
@@ -93,6 +112,7 @@ export const illustration = style({
 
 export const content = style({
   transition: theme.transition,
+  padding: "0 40px",
   selectors: {
     [`.${article.list} &`]: {
       opacity: 0,
