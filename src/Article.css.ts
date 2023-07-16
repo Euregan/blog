@@ -1,12 +1,11 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { contentWidth } from "./App.css";
-
-const transition = "all 0.5s ease";
+import { theme } from "./theme.css";
 
 const articleBase = style({
   textDecoration: "none",
-  transition,
+  transition: theme.transition,
   position: "relative",
 });
 
@@ -48,7 +47,7 @@ export const link = style([
     width: "100%",
     height,
     textDecoration: "none",
-    transition,
+    transition: theme.transition,
     transformOrigin: "left",
     selectors: {
       [`.${article.full} &`]: {
@@ -74,10 +73,10 @@ export const linkText = style({
 });
 
 export const illustration = style({
-  transition,
+  transition: theme.transition,
   objectFit: "cover",
   width: "100%",
-  borderRadius: 10,
+  borderRadius: theme.borderRadius,
   selectors: {
     [`.${article.list} &`]: {
       height,
@@ -93,7 +92,7 @@ export const illustration = style({
 });
 
 export const content = style({
-  transition,
+  transition: theme.transition,
   selectors: {
     [`.${article.list} &`]: {
       opacity: 0,
@@ -120,7 +119,7 @@ export const background = style({
   // We slightly scale the background to prevent dark borders around the background
   transform: "scale(1.1)",
   opacity: 0,
-  transition,
+  transition: theme.transition,
   selectors: {
     [`.${article.list}:hover + &, .${article.full} + &`]: {
       opacity: 1,

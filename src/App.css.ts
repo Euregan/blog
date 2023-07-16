@@ -11,15 +11,24 @@ globalStyle("body", {
   fontFamily: muktaMahee,
 });
 
+globalStyle("h1, h2", {
+  margin: 0,
+});
+
 export const contentWidth = createVar();
 
 export const main = style({
   width: contentWidth,
   margin: "auto",
   display: "flex",
-  flexDirection: "column",
+  // The children are in reverse order to make the glass effect of Presentation work when hovering over an article
+  flexDirection: "column-reverse",
   gap: "20px",
   vars: {
     [contentWidth]: "1028px",
   },
+});
+
+export const postSectionTitle = style({
+  padding: "0 40px",
 });

@@ -5,21 +5,19 @@ import elm from "./assets/elm.png";
 import Article from "./Article";
 import Nav from "./Nav";
 import Presentation from "./Presentation";
+import { themeClass } from "./theme.css";
 
 const App = () => {
   return (
-    <>
+    <div className={themeClass}>
       <Nav />
 
+      {/* The children are in reverse order to make the glass effect of Presentation work when hovering over an article */}
       <main className={styles.main}>
-        <Presentation />
-
-        <h2>My last posts:</h2>
-
         <Article
-          title="Building apps that do not crash"
-          illustration={elm}
-          link="/post/elm"
+          title="What place for AI in our society?"
+          illustration={ai}
+          link="/post/ai"
         >
           {content}
         </Article>
@@ -31,14 +29,18 @@ const App = () => {
           {content}
         </Article>
         <Article
-          title="What place for AI in our society?"
-          illustration={ai}
-          link="/post/ai"
+          title="Building apps that do not crash"
+          illustration={elm}
+          link="/post/elm"
         >
           {content}
         </Article>
+
+        <h2 className={styles.postSectionTitle}>My latest posts:</h2>
+
+        <Presentation />
       </main>
-    </>
+    </div>
   );
 };
 
