@@ -1,8 +1,8 @@
 import * as styles from "./App.css";
 import * as sectionTitlesStyles from "./AppSectionTitle.css";
-import authentication from "./assets/authentication - 4.png";
-import ai from "./assets/ai in society - 3.png";
-import elm from "./assets/elm.png";
+import authentication from "./assets/authentication - 4.jpg";
+import ai from "./assets/ai in society - 3.jpg";
+import elm from "./assets/elm.jpg";
 import Article from "./Article";
 import Nav from "./Nav";
 import Presentation from "./Presentation";
