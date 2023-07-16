@@ -46,7 +46,7 @@ export const article = styleVariants({
       },
     },
   ],
-  full: [internalArticle.full],
+  full: [internalArticle.full, {}],
 });
 
 export const title = style({
