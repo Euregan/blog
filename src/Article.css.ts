@@ -46,7 +46,12 @@ export const article = styleVariants({
       },
     },
   ],
-  full: [internalArticle.full, {}],
+  full: [
+    internalArticle.full,
+    // We keep an empty object to prevent class optimization
+    // In production, VE do not create specific classes when only inheriting from existing style
+    {},
+  ],
 });
 
 export const title = style({
