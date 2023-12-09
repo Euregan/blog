@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import * as style from "../Box.css";
+import * as style from "./Box.css";
 
 type BoxProps = {
   children: ReactNode;
