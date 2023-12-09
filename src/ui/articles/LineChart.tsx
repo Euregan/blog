@@ -32,14 +32,6 @@ const LineChart = ({ title, data }: Props) => {
       ),
     -Infinity
   );
-  const lowestValue = data.reduce(
-    (highestYet, { points }) =>
-      points.reduce(
-        (highestYet, { value }) => (value < highestYet ? value : highestYet),
-        highestYet
-      ),
-    0
-  );
 
   const graphHeight = height - margin * 2 - lineWidth / 2;
   const graphWidth = width - margin * 2;
