@@ -1,12 +1,22 @@
 import * as styles from "./App.css";
 import * as sectionTitlesStyles from "./AppSectionTitle.css";
 import authentication from "./assets/authentication - 4.jpg";
-import ai from "./assets/ai in society - 3.jpg";
 import elm from "./assets/elm.jpg";
 import Article from "./Article";
 import Nav from "./Nav";
 import Presentation from "./Presentation";
 import { themeClass } from "./theme.css";
+import * as ai from "./articles/AiInSociety";
+
+const slugify = (str: string) =>
+  str
+    .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+    .trim() // trim leading or trailing whitespace
+    .toLowerCase() // convert to lowercase
+    .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+    .replace(/\s+/g, "-") // replace spaces with hyphens
+    .replace(/-+/g, "-"); // remove consecutive hyphens
 
 const App = () => {
   return (
@@ -15,14 +25,8 @@ const App = () => {
 
       {/* The children are in reverse order to make the glass effect of Presentation work when hovering over an article */}
       <main className={styles.main}>
-        <Article
-          title="What place for AI in our society?"
-          illustration={ai}
-          link="/post/ai"
-        >
-          {content}
-        </Article>
-        <Article
+        {/* <Article {...ai} link={"/post/" + slugify(ai.title)} /> */}
+        {/* <Article
           title="Authentication without a library"
           illustration={authentication}
           link="/post/authentication"
@@ -35,9 +39,9 @@ const App = () => {
           link="/post/elm"
         >
           {content}
-        </Article>
+        </Article> */}
 
-        <h2 className={sectionTitlesStyles.posts}>My latest posts:</h2>
+        {/* <h2 className={sectionTitlesStyles.posts}>My latest posts:</h2> */}
 
         <Presentation />
       </main>

@@ -1,6 +1,6 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { contentWidth, listGap } from "./App.css";
+import { contentWidth, listGap, mainPagePadding } from "./App.css";
 import { theme } from "./theme.css";
 
 const articleBase = style({
@@ -57,7 +57,7 @@ export const article = styleVariants({
 export const title = style({
   color: "white",
   fontSize: 24,
-  padding: "0 40px",
+  padding: `0 ${mainPagePadding}`,
 });
 
 export const link = style([
@@ -89,7 +89,7 @@ export const link = style([
 export const linkText = style({
   width: "33%",
   height: "100%",
-  padding: `0 35px`,
+  padding: `0 ${mainPagePadding}`,
   display: "flex",
   alignItems: "center",
   background: "rgba(0, 0, 0, 0.13)",
@@ -117,7 +117,6 @@ export const illustration = style({
 
 export const content = style({
   transition: theme.transition,
-  padding: "0 40px",
   selectors: {
     [`.${article.list} &`]: {
       opacity: 0,

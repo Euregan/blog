@@ -1,16 +1,16 @@
 import { Link, useLocation } from "wouter";
 import * as styles from "./Article.css";
-import { ReactNode } from "react";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 type Props = {
   title: string;
   link: string;
   illustration: string;
-  children: ReactNode;
+  date: Date;
+  Content: () => JSX.Element;
 };
 
-const Article = ({ title, link, illustration, children }: Props) => {
+const Article = ({ title, link, illustration, Content }: Props) => {
   const [location] = useLocation();
 
   return (
@@ -22,7 +22,7 @@ const Article = ({ title, link, illustration, children }: Props) => {
       >
         <img src={illustration} className={styles.illustration} />
         <h2 className={styles.title}>{title}</h2>
-        <section className={styles.content}>{children}</section>
+        <section className={styles.content}>{<Content />}</section>
 
         <Link href={link}>
           <a className={styles.link}>
