@@ -5,6 +5,11 @@ export const nav = style({
   padding: 20,
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
+  "@media": {
+    print: {
+      display: "none",
+    },
+  },
 });
 
 export const link = style({

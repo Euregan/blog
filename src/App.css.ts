@@ -37,6 +37,27 @@ globalStyle("body", {
   color: "white",
   fontFamily: muktaMahee,
   fontWeight: 300,
+  "@media": {
+    print: {
+      background: "white",
+    },
+  },
+});
+
+globalStyle("@page", {
+  margin: "0mm",
+});
+
+globalStyle("a", {
+  color: "white",
+  textDecoration: "none",
+  fontWeight: 500,
+  "@media": {
+    print: {
+      color: "black",
+      fontWeight: 400,
+    },
+  },
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
