@@ -95,7 +95,12 @@ const titleBase = style({
   },
 });
 
-export const companyTitle = style([titleBase]);
+export const companyTitle = style([
+  titleBase,
+  {
+    fontWeight: 300,
+  },
+]);
 
 export const dates = style({
   color: "#7b7b81",
