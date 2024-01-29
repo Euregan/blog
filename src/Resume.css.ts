@@ -128,3 +128,19 @@ export const jobDescription = style({
     },
   },
 });
+
+export const technologies = style({
+  color: "#97979d",
+  fontWeight: 400,
+  printColorAdjust: "exact",
+  "@media": {
+    print: {
+      color: "#3a3a3e",
+    },
+  },
+  selectors: {
+    ":not(h4) > &:before": {
+      content: "Technologies: ",
+    },
+  },
+});

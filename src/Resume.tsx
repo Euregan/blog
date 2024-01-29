@@ -140,6 +140,9 @@ const Resume = () => {
                     </>
                   )}
                 </div>
+                <div className={style.technologies}>
+                  Typescript, React, Node, GraphQL, PostgreSQL
+                </div>
               </li>
 
               <li className={style.job}>
@@ -171,6 +174,9 @@ const Resume = () => {
                       rapidement et efficacement.
                     </>
                   )}
+                </div>
+                <div className={style.technologies}>
+                  Typescript, React, Node, GraphQL, PostgreSQL
                 </div>
               </li>
 
@@ -206,6 +212,9 @@ const Resume = () => {
                     </>
                   )}
                 </div>
+                <div className={style.technologies}>
+                  Typescript, React, Node, GraphQL, PostgreSQL
+                </div>
               </li>
             </ul>
           </li>
@@ -219,7 +228,10 @@ const Resume = () => {
             </h3>
             <ul className={style.jobs}>
               <li className={style.job}>
-                <h4 className={style.jobTitle}>Développeur web</h4>
+                <h4 className={style.jobTitle}>
+                  Développeur web
+                  <div className={style.technologies}>Vue, Laravel, MySQL</div>
+                </h4>
                 <div className={style.jobDescription}>
                   {language === "en" && (
                     <>
@@ -254,7 +266,12 @@ const Resume = () => {
             </h3>
             <ul className={style.jobs}>
               <li className={style.job}>
-                <h4 className={style.jobTitle}>Développeur web</h4>
+                <h4 className={style.jobTitle}>
+                  Développeur web
+                  <div className={style.technologies}>
+                    AngularJS, Vue, Symfony, Node, MySQL
+                  </div>
+                </h4>
                 <div className={style.jobDescription}>
                   {language === "en" && (
                     <>
@@ -291,7 +308,12 @@ const Resume = () => {
             </h3>
             <ul className={style.jobs}>
               <li className={style.job}>
-                <h4 className={style.jobTitle}>Développeur web</h4>
+                <h4 className={style.jobTitle}>
+                  Développeur web
+                  <div className={style.technologies}>
+                    AngularJS, Vue, Symfony, Node, MySQL
+                  </div>
+                </h4>
                 <div className={style.jobDescription}>
                   {language === "en" && (
                     <>
@@ -327,7 +349,12 @@ const Resume = () => {
             </h3>
             <ul className={style.jobs}>
               <li className={style.job}>
-                <h4 className={style.jobTitle}>Développeur web</h4>
+                <h4 className={style.jobTitle}>
+                  Développeur web
+                  <div className={style.technologies}>
+                    Silverlight, VB.Net, SQL Server
+                  </div>
+                </h4>
                 <div className={style.jobDescription}>
                   {language === "en" && (
                     <>
@@ -367,7 +394,12 @@ const Resume = () => {
             </h3>
             <ul className={style.jobs}>
               <li className={style.job}>
-                <h4 className={style.jobTitle}>Développeur web</h4>
+                <h4 className={style.jobTitle}>
+                  Développeur web
+                  <div className={style.technologies}>
+                    Zend Framework, MySQL
+                  </div>
+                </h4>
                 <div className={style.jobDescription}>
                   {language === "en" && (
                     <>
