@@ -39,6 +39,12 @@ export const header = style({
 
 export const name = style({
   lineHeight: 1.2,
+  display: "none",
+  "@media": {
+    print: {
+      display: "block",
+    },
+  },
 });
 
 export const namePart = style({ display: "inline-block", lineHeight: 1 });

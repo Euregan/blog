@@ -1,5 +1,5 @@
-import { useState } from "react";
 import * as style from "./Resume.css";
+import { useLanguage } from "./hooks/useLanguage";
 
 const monthToLanguage = (
   language: string,
@@ -40,7 +40,7 @@ const monthToLanguage = (
   );
 
 const Resume = () => {
-  const [language] = useState<"fr" | "en">("en");
+  const { language } = useLanguage();
 
   return (
     <main className={style.resume}>
@@ -404,7 +404,7 @@ const Resume = () => {
                   {language === "en" && (
                     <>
                       Worked on various system and web app improvements, feature
-                      implementation and general maintenance for a maketplace
+                      implementation and general maintenance for a marketplace
                       management platform.
                     </>
                   )}
