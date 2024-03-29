@@ -16,6 +16,16 @@ const Nav = () => {
             </a>
           </Link>
         </li>
+        <li>
+          <Link href="/resume">
+            <a className={style.link}>
+              <div className={style.linkContent}>
+                {language === "en" && "Resume"}
+                {language === "fr" && "CV"}
+              </div>
+            </a>
+          </Link>
+        </li>
       </ul>
 
       <ul className={style.externals}>
@@ -50,7 +60,7 @@ const Nav = () => {
             href="https://github.com/euregan/"
             className={style.link}
           >
-            <Github className={style.linkContent} />
+            <Github className={style.linkContent} size="1em" />
           </a>
         </li>
         <li>
@@ -60,7 +70,7 @@ const Nav = () => {
             href="https://twitter.com/Euregan"
             className={style.link}
           >
-            <Twitter className={style.linkContent} />
+            <Twitter className={style.linkContent} size="1em" />
           </a>
         </li>
         <li>
@@ -70,7 +80,7 @@ const Nav = () => {
             href="https://www.linkedin.com/in/valentin-manceaux-panot-0b160a67/"
             className={style.link}
           >
-            <Linkedin className={style.linkContent} />
+            <Linkedin className={style.linkContent} size="1em" />
           </a>
         </li>
       </ul>
