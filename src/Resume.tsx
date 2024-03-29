@@ -147,7 +147,7 @@ const Resume = () => {
 
               <li className={style.job}>
                 <h4 className={style.jobTitle}>
-                  Senior UI Engineer
+                  Senior Design Engineer
                   <div className={style.dates}>
                     {monthToLanguage(language, "July")} 2022 -{" "}
                     {monthToLanguage(language, "December")} 2022

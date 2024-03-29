@@ -3,8 +3,9 @@ import { calc } from "@vanilla-extract/css-utils";
 
 export const nav = style({
   padding: 20,
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "baseline",
   "@media": {
     print: {
       display: "none",
@@ -15,42 +16,55 @@ export const nav = style({
 export const link = style({
   color: "white",
   textDecoration: "none",
-  position: "relative",
 });
 
+const gap = createVar();
 const offset = createVar();
+const borderThickness = createVar();
 
 export const linkContent = style({
   lineHeight: 1,
-  vars: { [offset]: "-4px" },
-  borderBottom: "2px solid transparent",
+  vars: { [gap]: "4px", [offset]: "0px", [borderThickness]: "2px" },
+  borderBottom: `${borderThickness} solid transparent`,
+  paddingBottom: gap,
   selectors: {
     [`${link}:hover &, &:hover`]: {
-      marginTop: offset,
-      paddingBottom: calc.multiply(offset, -1),
-      borderBottom: "2px solid white",
+      transform: `translateY(${calc.add(
+        calc.subtract(calc.multiply(gap, -1), borderThickness),
+        offset
+      )})`,
+      borderBottom: `${borderThickness} solid white`,
     },
   },
   transition: "all 0.2s cubic-bezier(.17,.84,.44,1)",
 });
+
+export const icon = style([
+  linkContent,
+  {
+    vars: { [offset]: "7px" },
+    fontSize: "1.5rem",
+    transform: `translateY(${offset})`,
+  },
+]);
 
 const baseCategory = style({
   all: "unset",
   listStyle: "none",
   display: "flex",
   gap: 10,
+  alignItems: "baseline",
 });
 
 export const internals = style([baseCategory, { gap: "1em" }]);
 
-export const externals = style([baseCategory, { justifyContent: "flex-end" }]);
+export const externals = style([baseCategory, {}]);
 
 export const languageSwitcher = style({
   all: "unset",
   display: "flex",
+  alignItems: "baseline",
   gap: "0.35em",
-  // Hack to keep the languages aligned with the icons
-  paddingTop: "1.3ex",
 });
 
 export const languageButton = style([
