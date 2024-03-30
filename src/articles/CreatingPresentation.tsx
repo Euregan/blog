@@ -60,6 +60,7 @@ export const Content = () => {
               I settled on using Next.
             </>
           ),
+          fr: <></>,
         }}
       </Paragraph>
       <Paragraph>
@@ -78,6 +79,7 @@ export const Content = () => {
               sure incoming values are validated and properly typed.
             </>
           ),
+          fr: <></>,
         }}
       </Paragraph>
 
@@ -98,6 +100,7 @@ export const Content = () => {
               write a pretty straightforward <pre>useEffect</pre> hook for that:
             </>
           ),
+          fr: <></>,
         }}
       </Paragraph>
 
@@ -134,6 +137,7 @@ useEffect(() => {
               and we'll come back to it later too.
             </>
           ),
+          fr: <></>,
         }}
       </Paragraph>
     </>
