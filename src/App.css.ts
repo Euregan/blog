@@ -1,4 +1,5 @@
 import { createVar, fontFace, globalStyle, style } from "@vanilla-extract/css";
+import { theme } from "./theme.css";
 
 const muktaMahee = fontFace([
   {
@@ -67,6 +68,16 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
 
 globalStyle("p", {
   margin: 0,
+});
+
+globalStyle("pre", {
+  display: "inline",
+  fontFamily: theme.font.mono,
+  fontSize: "0.9em",
+  background: theme.colors.element.background,
+  margin: 0,
+  padding: "4px 5px",
+  borderRadius: 5,
 });
 
 export const contentWidth = createVar();

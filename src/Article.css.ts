@@ -1,12 +1,13 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { contentWidth, listGap, mainPagePadding } from "./App.css";
-import { theme } from "./theme.css";
+import { gap, theme } from "./theme.css";
 
 const articleBase = style({
   textDecoration: "none",
   transition: theme.transition,
   position: "relative",
+  width: "100%",
 });
 
 const height = createVar();
@@ -36,6 +37,7 @@ export const article = styleVariants({
   list: [
     internalArticle.list,
     {
+      transition: theme.transition,
       selectors: {
         [`&:has(~ .${internalArticle.full}), .${internalArticle.full} ~ &`]: {
           opacity: 0,
@@ -43,6 +45,10 @@ export const article = styleVariants({
             [height]: calc.multiply(-1, listGap),
           },
         },
+      },
+      ":hover": {
+        width: "106%",
+        transform: "translateX(-3%)",
       },
     },
   ],
@@ -94,6 +100,10 @@ export const linkText = style({
   alignItems: "center",
   background: "rgba(0, 0, 0, 0.13)",
   backdropFilter: "blur(3px)",
+  // @ts-expect-error The property exists, but VE is probably not up to date
+  textWrap: "balance",
+  borderBottomLeftRadius: theme.borderRadius,
+  borderTopLeftRadius: theme.borderRadius,
 });
 
 export const illustration = style({
@@ -116,7 +126,11 @@ export const illustration = style({
 });
 
 export const content = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: gap,
   transition: theme.transition,
+  vars: { [gap]: "20px" },
   selectors: {
     [`.${article.list} &`]: {
       opacity: 0,
@@ -139,7 +153,7 @@ export const background = style({
   backgroundSize: "cover",
   backgroundPosition: "center",
   zIndex: -1,
-  filter: "brightness(0.5) blur(4px) contrast(0.8)",
+  filter: "brightness(0.5) blur(8px) contrast(0.8) grayscale(0.3)",
   // We slightly scale the background to prevent dark borders around the background
   transform: "scale(1.1)",
   opacity: 0,
@@ -147,6 +161,9 @@ export const background = style({
   selectors: {
     [`.${article.list}:hover + &, .${article.full} + &`]: {
       opacity: 1,
+    },
+    [`.${article.list}:hover + &`]: {
+      filter: "brightness(0.5) contrast(0.8) grayscale(0.3)",
     },
   },
 });

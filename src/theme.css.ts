@@ -1,4 +1,6 @@
-import { createTheme, fontFace } from "@vanilla-extract/css";
+import { createTheme, createVar, fontFace } from "@vanilla-extract/css";
+
+export const gap = createVar();
 
 const fira = fontFace([
   {
@@ -84,16 +86,38 @@ const fira = fontFace([
   },
 ]);
 
+const commit = fontFace([
+  {
+    src: `url(/CommitMono-400-Italic.otf)`,
+    fontWeight: 400,
+    fontStyle: "italic",
+  },
+  {
+    src: `url(/CommitMono-400-Regular.otf)`,
+    fontWeight: 400,
+  },
+  {
+    src: `url(/CommitMono-700-Italic.otf)`,
+    fontWeight: 700,
+    fontStyle: "italic",
+  },
+  {
+    src: `url(/CommitMono-700-Regular.otf)`,
+    fontWeight: 700,
+  },
+]);
+
 export const [themeClass, theme] = createTheme({
   font: {
     special: fira,
+    mono: commit,
   },
-  transition: "all 0.5s ease",
+  colors: {
+    accent: "#5E81AC",
+    element: {
+      background: "#111111",
+    },
+  },
+  transition: "all 0.5s ease, color 0.2s ease",
   borderRadius: "10px",
-  glass: {
-    background: "rgba(255, 255, 255, 0.1)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-    backdropFilter: "blur(10px)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
-  },
 });
