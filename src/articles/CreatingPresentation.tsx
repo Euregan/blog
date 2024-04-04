@@ -3,6 +3,12 @@ import Code from "../ui/articles/Code";
 import Header from "../ui/articles/Header";
 import Link from "../ui/articles/Link";
 import Paragraph from "../ui/articles/Paragraph";
+import SideNote from "../ui/articles/SideNote";
+
+import firstStep from "../assets/creating-presentation/first-step.png";
+import secondStep from "../assets/creating-presentation/second-step.png";
+import TwoColumns from "../ui/TwoColumns";
+import Image from "../ui/articles/Image";
 
 /* eslint-disable react-refresh/only-export-components */
 export { default as illustration } from "../assets/creating presentation.png";
@@ -60,7 +66,6 @@ export const Content = () => {
               I settled on using Next.
             </>
           ),
-          fr: <></>,
         }}
       </Paragraph>
       <Paragraph>
@@ -79,7 +84,6 @@ export const Content = () => {
               sure incoming values are validated and properly typed.
             </>
           ),
-          fr: <></>,
         }}
       </Paragraph>
 
@@ -100,7 +104,6 @@ export const Content = () => {
               write a pretty straightforward <pre>useEffect</pre> hook for that:
             </>
           ),
-          fr: <></>,
         }}
       </Paragraph>
 
@@ -137,9 +140,119 @@ useEffect(() => {
               and we'll come back to it later too.
             </>
           ),
-          fr: <></>,
         }}
       </Paragraph>
+
+      <Header>Implementing multi-step slides</Header>
+
+      <Paragraph>
+        {{
+          en: (
+            <>
+              I wanted to be able to have multiple steps in a given slides.
+              Things like multiple definitions, appearing as I talk about them,
+              so the attendees are not overwhelmed by walls of text on slide
+              switch.
+            </>
+          ),
+        }}
+      </Paragraph>
+
+      <TwoColumns>
+        <Image
+          source={firstStep}
+          legend={{
+            en: "The first step of a slide",
+            fr: "La première étape d'une slide",
+          }}
+        />
+        <Image
+          source={secondStep}
+          legend={{
+            en: "The second step of a slide",
+            fr: "La deuxième étape d'une slide",
+          }}
+        />
+      </TwoColumns>
+
+      <Paragraph>
+        {{
+          en: (
+            <>
+              For that, I needed to somehow plug into the slide navigation logic
+              that lived in the layout component. The way Next does things
+              though makes it very hard to interact with the parent layout from
+              within a page. So I took the code above, and made it a simple
+              hook. Now that I had something I could call from anywhere, I had
+              to add the possibility for the hook to handle steps. I first tried
+              to add the feature to the hook, but the duality of behaviour that
+              resulted in this choice made it very awkward to properly write the
+              hook. The code was messy, full of `if`/`else` and very hard to
+              understand. So I decided to split the hook in two: One to simply
+              handle the forward and back interactions, and the other to handle
+              the steps of a given slide.
+            </>
+          ),
+        }}
+      </Paragraph>
+      <Paragraph>
+        {{
+          en: (
+            <>
+              For that, I needed to somehow plug into the slide navigation logic
+              that lived in the layout component. The way Next does things
+              though makes it very hard to interact with the parent layout from
+              within a page. So I took the code above, and made it a simple
+              hook. Now that I had something I could call from anywhere, I had
+              to add the possibility for the hook to handle steps. I first tried
+              to add the feature to the hook, but the duality of behaviour that
+              resulted in this choice made it very awkward to properly write the
+              hook. The code was messy, full of <pre>if</pre>/<pre>else</pre>{" "}
+              and very hard to understand. So I decided to split the hook in
+              two: One to simply handle the forward and back interactions, and
+              the other to handle the steps of a given slide.
+            </>
+          ),
+        }}
+      </Paragraph>
+      <Paragraph>
+        {{
+          en: (
+            <>
+              Now I was facing a new problem: I needed to sync data between the
+              two hooks. In order for the first one to decide between switching
+              step and switching slides, it needed to access the context of the
+              second hook. I chose to use zustand, as it is lightweight,
+              straightforward and I know it well.
+            </>
+          ),
+        }}
+      </Paragraph>
+
+      <SideNote>
+        {{
+          en: (
+            <>
+              I could also have employed the same{" "}
+              <Link href="https://github.com/pmndrs/zustand/commit/1315ab61921ba6143086b01dc58b49cac4c4feaf#diff-e727e4bdf3657fd1d798edcd6b099d6e092f8573cba266154583a746bba0f346">
+                trick as zustand
+              </Link>
+              , which simply uses locally scoped variables outside of the hook,
+              but I’m pretty sure they didn’t commit 1018 times (at time of
+              writing) just for fun, so I relied on the library rather than the
+              trick to gain some time. There is a fine line between re
+              implementing something yourself, and using a library that fits the
+              usage. Personally I think zustand always make sense, because it is
+              specific in what it does, and since it’s a hook creator, it is
+              easy to switch it out for something else if needed.
+            </>
+          ),
+        }}
+      </SideNote>
+
+      <Header>Creating the notes page</Header>
+
+      <Header>Adding the questionnaire</Header>
     </>
   );
 };

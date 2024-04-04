@@ -3,7 +3,7 @@ import { Language, useLanguage } from "../../hooks/useLanguage";
 import * as styles from "./Paragraph.css";
 
 type Props = {
-  children: Record<Language, ReactNode>;
+  children: Partial<Record<Language, ReactNode>>;
 };
 
 const Paragraph = ({ children }: Props) => {
