@@ -100,6 +100,49 @@ const Resume = () => {
         <ul className={style.experiences}>
           <li className={style.company}>
             <h3 className={style.companyTitle}>
+              Zygon
+              <div className={style.dates}>
+                {monthToLanguage(language, "May")} 2024 -{" "}
+                {language === "en" && "now"}
+                {language === "fr" && "aujourd'hui"}
+              </div>
+            </h3>
+            <ul className={style.jobs}>
+              <li className={style.job}>
+                <h4 className={style.jobTitle}>
+                  Technical Lead
+                  <div className={style.technologies}>
+                    Typescript, React, Node, GraphQL, PostgreSQL
+                  </div>
+                </h4>
+                <div className={style.jobDescription}>
+                  {language === "en" && (
+                    <>
+                      Worked on foundational topics by replacing TypeGraphQL
+                      with a faster generator, industrialized CI/CD processes,
+                      and implemented the publication of a CLI on npm. In
+                      parallel, I developed various features, ranging from
+                      interfaces with Teams, Slack and Google Chat to data
+                      retrieval from Microsoft Entra and Okta.
+                    </>
+                  )}
+                  {language === "fr" && (
+                    <>
+                      J'ai travaillé sur des sujet de fond en remplaçant
+                      TypeGraphQL par un générateur plus rapide, j'ai
+                      industrialisé les processus CI/CD, j'ai mis en place la
+                      publication d'un CLI sur npm. J'ai en parallèle développé
+                      diverses fonctionnalités, allant d'interfaçage avec Teams,
+                      Slack et Google Chat à de la récupération de données
+                      depuis Microsoft Entra et Okta.
+                    </>
+                  )}
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li className={style.company}>
+            <h3 className={style.companyTitle}>
               Tint
               <div className={style.dates}>
                 {monthToLanguage(language, "September")} 2021 -{" "}
@@ -360,10 +403,7 @@ const Resume = () => {
                     <>
                       Worked on various system and web app improvements, feature
                       implementation and general maintenance for accounting and
-                      activity management software. New features include service
-                      rental, an event ticketing system, a multi media library
-                      management system, creation of end user facing apps and
-                      their configuration admin and migrating to GIT.
+                      activity management software.
                     </>
                   )}
                   {language === "fr" && (
@@ -372,12 +412,7 @@ const Resume = () => {
                       des applications web, l'implémentation de fonctionnalités
                       et la maintenance générale pour des logiciels de
                       comptabilité et de gestion d'activités de commité
-                      d'entreprise. Les nouvelles fonctionnalités comprennent la
-                      gestion de prestations, un système de billetterie pour
-                      événements, un système de gestion de médiathèque, la
-                      création d'applications destinées aux utilisateurs finaux
-                      et leurs admin de configuration, ainsi que la migration
-                      sur GIT.
+                      d'entreprise.
                     </>
                   )}
                 </div>
